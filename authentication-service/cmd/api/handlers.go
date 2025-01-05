@@ -27,6 +27,7 @@ func (app *Application) Authenticate(w http.ResponseWriter, r *http.Request) {
 
 	valid, err := user.PasswordMatches(requestPayload.Password)
 	if err != nil || !valid {
+		fmt.Println("Authenticate calledsssssssssssssssssss", valid, err)
 		app.errorJSON(w, errors.New("invalid credentials"), http.StatusBadRequest)
 		return
 	}
